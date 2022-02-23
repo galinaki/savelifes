@@ -14,7 +14,7 @@ Main goal of this app is attract attention to planet problem, let user discover 
 - Authorization and Authiction 
 
 #### ERD Model
-![p4 model](https://drive.google.com/file/d/1kotOzi4hppFU1tbfWO-c6ixu1sUDVQEJ/view?usp=sharing)
+Click here for [p4 model](https://drive.google.com/file/d/1kotOzi4hppFU1tbfWO-c6ixu1sUDVQEJ/view?usp=sharing)
 
 #### PostMVP
 
@@ -33,7 +33,7 @@ Main goal of this app is attract attention to planet problem, let user discover 
 | Mar 2     | Polishing/ Presentation                                               | Incomplete |
 
 ## Wireframes/Component Hierarchy
-
+Whimsical model [click here](https://whimsical.com/app-RHArdsX5bErxT7jQJ2tyXJ)
 
 ## Timeframes
 
@@ -47,3 +47,6 @@ Main goal of this app is attract attention to planet problem, let user discover 
 | Styling                                 |    L     |     5 hrs      |     5hrs      |    5 hrs    |
 | Polishing and adjustment                |    M     |      4hrs      |     4hrs      |    4hrs     |
 | Total                                   |    H     |        |       |     |
+
+
+## Code Showcase
