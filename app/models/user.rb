@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :species
+  has_many :breeds
+  
   has_secure_password
 
   validates :username, presence: true, uniqueness: true
