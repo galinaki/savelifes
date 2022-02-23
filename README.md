@@ -14,7 +14,7 @@ Main goal of this app is attract attention to planet problem, let user discover 
 - Authorization and Authiction 
 
 #### ERD Model
-![alt tag](https://drive.google.com/file/d/1kotOzi4hppFU1tbfWO-c6ixu1sUDVQEJ/view?usp=sharing)
+![p4 model](https://drive.google.com/file/d/1kotOzi4hppFU1tbfWO-c6ixu1sUDVQEJ/view?usp=sharing)
 
 #### PostMVP
 
