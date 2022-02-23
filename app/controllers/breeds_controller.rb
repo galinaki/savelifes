@@ -1,5 +1,6 @@
 class BreedsController < ApplicationController
   before_action :set_breed, only: %i[ show update destroy ]
+  before_action :authorize_request, except: [:create, :show, :index]
 
   # GET /breeds
   def index
