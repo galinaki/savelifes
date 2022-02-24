@@ -8,21 +8,22 @@ Main goal of this app is attract attention to planet problem, let user discover 
 
 #### MVP
 
-- Back-end with 3 tables
+- Back-end with 3 tables: users, animals, donation
 - Ruby on Rails server, exposing RESTful JSON endpoints
 - Full CRUD
 - Let navigation bar and links to be dinamic and responsive
 - Authorization and Authiction
+- Tablet, phone sizes responsive
+
+#### PostMVP
+
+- World map with areas of animal list living
+- Styling with animation
 
 #### ERD Model
 
 Click here for [p4 model](https://drive.google.com/file/d/1kotOzi4hppFU1tbfWO-c6ixu1sUDVQEJ/view?usp=sharing)
 
-#### PostMVP
-
-- Donation table
-- Tablet, phone sizes responsive
-- Styling with animation
 
 ## Project Schedule
 
