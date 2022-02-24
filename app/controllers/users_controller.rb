@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
-  before_action :authorize_request, only: [:update, :destroy]
 
   # GET /users
   def index
@@ -19,11 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @token = encode({id: @user.id})
-      render json: {
-        user: @user.attributes.except("password_digest"),
-        token: @token
-        }, status: :created
+      render json: @user, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -51,6 +46,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email, :firstname, :lastname, :password)
+      params.require(:user).permit(:username, :email, :firstname, :lastname, :password_digest)
     end
 end

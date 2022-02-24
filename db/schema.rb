@@ -10,32 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_23_225237) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_24_213533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "breeds", force: :cascade do |t|
+  create_table "animals", force: :cascade do |t|
     t.string "name"
+    t.text "img_url"
     t.integer "population"
     t.text "habitats"
-    t.text "img_url"
-    t.bigint "species_id", null: false
+    t.text "link"
+    t.text "location"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "link"
-    t.bigint "user_id"
-    t.index ["species_id"], name: "index_breeds_on_species_id"
-    t.index ["user_id"], name: "index_breeds_on_user_id"
+    t.index ["user_id"], name: "index_animals_on_user_id"
   end
 
-  create_table "species", force: :cascade do |t|
+  create_table "donates", force: :cascade do |t|
     t.string "name"
-    t.text "img_url"
+    t.text "desciption"
+    t.text "logo_url"
+    t.text "link"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "link"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_species_on_user_id"
+    t.index ["user_id"], name: "index_donates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,7 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_23_225237) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "breeds", "species"
-  add_foreign_key "breeds", "users"
-  add_foreign_key "species", "users"
+  add_foreign_key "animals", "users"
+  add_foreign_key "donates", "users"
 end
