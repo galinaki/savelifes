@@ -38,6 +38,7 @@ Click here for [p4 model](https://drive.google.com/file/d/1kotOzi4hppFU1tbfWO-c6
 ## Wireframes/Component Hierarchy
 
 Whimsical model [click here](https://whimsical.com/app-RHArdsX5bErxT7jQJ2tyXJ)
+
 Pages models [click here](https://whimsical.com/p4-EyvsmUdn2ofMM93WEcoien)
 
 ## Timeframes
