@@ -13,7 +13,7 @@ Main goal of this app is attract attention to planet problem, let user discover 
 - Full CRUD
 - Let navigation bar and links to be dinamic and responsive
 - Authorization and Authiction
-- - Tablet, phone sizes responsive
+- Tablet, phone sizes responsive
 
 #### PostMVP
 
