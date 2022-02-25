@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Animals(props) {
   return (
-    <div>
+      <div>
       {props.animals.map(animal => (
         <Link key={animal.id} to={`/animals/${animal.id}`} >
           <img src={animal.img_url} alt={animal.name}/>

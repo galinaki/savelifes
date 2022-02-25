@@ -5,6 +5,7 @@ import './App.css';
 import AnimalsContainer from './containers/AnimalsContainer';
 import Subscribe from './screens/Subscribe/Subscribe';
 import Login from './screens/Login/Login';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar currentUser={currentUser} logout={logout} />
       <Routes>
         <Route path='/users' element={<Subscribe />} setCurrentUser={setCurrentUser}  />
         <Route path='/login' element={<Login setCurrentUser={setCurrentUser} />} />

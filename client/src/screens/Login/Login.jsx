@@ -18,7 +18,7 @@ export default function Login(props) {
       const resp = await loginUser(user)
       props.setCurrentUser(resp)
 
-      navigate('/')
+      navigate('/animals')
 
     }}>
       <input type='text' onChange={(e) => setUsername(e.target.value) } value={username} />
