@@ -1,5 +1,6 @@
 class DonatesController < ApplicationController
   before_action :set_donate, only: %i[ show update destroy ]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /donates
   def index
@@ -16,6 +17,7 @@ class DonatesController < ApplicationController
   # POST /donates
   def create
     @donate = Donate.new(donate_params)
+    @donate.user = @current_user
 
     if @donate.save
       render json: @donate, status: :created, location: @donate

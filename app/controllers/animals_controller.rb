@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: %i[ show update destroy ]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /animals
   def index
@@ -10,12 +11,14 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1
   def show
-    render json: @animal
+    @user = User.find(params[:user_id])
+    render json: @user.animal
   end
 
   # POST /animals
   def create
     @animal = Animal.new(animal_params)
+    @animal.user = @current_user
 
     if @animal.save
       render json: @animal, status: :created, location: @animal
@@ -36,6 +39,7 @@ class AnimalsController < ApplicationController
   # DELETE /animals/1
   def destroy
     @animal.destroy
+    render json: @animal
   end
 
   private
