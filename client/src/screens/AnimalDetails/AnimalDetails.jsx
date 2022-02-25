@@ -19,7 +19,7 @@ export default function AnimalDetails(props) {
   return (
     <div>
       {
-        animal.id ? 
+        animal?.id ? 
           <>
             <img src={animal.img_url} alt={animal.name} />
             <h3>{animal.name}</h3>
@@ -27,8 +27,10 @@ export default function AnimalDetails(props) {
             <h4>{animal.habitats}</h4>
             <h5>{animal.link}</h5>
             <h5>{animal.location}</h5>
-
-            {props.currentUser?.id === animal.user_id ?
+            <h1>{animal.user_id}</h1>
+            
+            {
+              props.currentUser?.id === animal.user_id ?
               <>
                 <button>Edit</button>
                 <button>Delete</button>
