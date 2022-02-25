@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { Routes, Route } from 'react-router-dom';
+import AnimalCreate from '../screens/AnimalCreate/AnimalCreate';
 import AnimalDetails from '../screens/AnimalDetails/AnimalDetails';
 import Animals from '../screens/Animals/Animals';
-import { getAllAnimals } from '../services/animalConfig';
+import { createAnimals, getAllAnimals } from '../services/animalConfig';
 
 export default function AnimalsContainer(props) {
 
   const [animals, setAnimals] = useState([]);
-  // const [toggle, setToggle] = useState(false);
-  // const navigate = useNavigate();
+  const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAnimals = async () => {
@@ -19,6 +20,12 @@ export default function AnimalsContainer(props) {
     fetchAnimals()
   })
 
+  const handleCreate = async (AnimalData) => {
+    await createAnimals(AnimalData)
+    setToggle(prevToggle => !prevToggle)
+    navigate('/animals')
+  }
+
 
 
   return (
@@ -26,6 +33,7 @@ export default function AnimalsContainer(props) {
       <Routes>
         <Route path='/' element={<Animals animals={animals} currentUser={props.currentUser} />} />
         <Route path='/:id' element={<AnimalDetails animals={animals} currentUser={props.currentUser} />} />
+        <Route path='/add' element={<AnimalCreate handleCreate={handleCreate}/>} />
       </Routes>
     </div>
   )
