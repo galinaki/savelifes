@@ -28,8 +28,14 @@ export default function AnimalDetails(props) {
             <h5>{animal.link}</h5>
             <h5>{animal.location}</h5>
 
-            <button>Edit</button>
-            <button>Delete</button>
+            {props.currentUser?.id === animal.user_id ?
+              <>
+                <button>Edit</button>
+                <button>Delete</button>
+              </>
+              :
+              null
+            }
           </>
           :
           <h6>Nothing found</h6>

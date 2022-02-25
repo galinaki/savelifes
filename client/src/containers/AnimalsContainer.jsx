@@ -24,8 +24,8 @@ export default function AnimalsContainer(props) {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Animals animals={animals} />} />
-        <Route path='/:id' element={<AnimalDetails animals={animals} />} />
+        <Route path='/' element={<Animals animals={animals} currentUser={props.currentUser} />} />
+        <Route path='/:id' element={<AnimalDetails animals={animals} currentUser={props.currentUser} />} />
       </Routes>
     </div>
   )
