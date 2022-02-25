@@ -27,6 +27,9 @@ export default function AnimalDetails(props) {
             <h4>{animal.habitats}</h4>
             <h5>{animal.link}</h5>
             <h5>{animal.location}</h5>
+
+            <button>Edit</button>
+            <button>Delete</button>
           </>
           :
           <h6>Nothing found</h6>
