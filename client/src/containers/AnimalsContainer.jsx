@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import AnimalDetails from '../screens/AnimalDetails/AnimalDetails';
 import Animals from '../screens/Animals/Animals';
 import { getAllAnimals } from '../services/animalConfig';
 
-export default function AnimalsContainer() {
+export default function AnimalsContainer(props) {
 
   const [animals, setAnimals] = useState([]);
   // const [toggle, setToggle] = useState(false);
@@ -18,10 +19,13 @@ export default function AnimalsContainer() {
     fetchAnimals()
   })
 
+
+
   return (
     <div>
       <Routes>
         <Route path='/' element={<Animals animals={animals} />} />
+        <Route path='/:id' element={<AnimalDetails animals={animals} />} />
       </Routes>
     </div>
   )
