@@ -47,7 +47,7 @@ export default function AnimalDetails(props) {
                 <Link to={`/animals/${animal.id}/edit`}>
                   <button>Edit</button>
                 </Link>
-                <button>Delete</button>
+                <button onClick={()=>props.handleDelete(animal.id)}>Delete</button>
               </>
               :
               null

@@ -5,7 +5,7 @@ import AnimalCreate from '../screens/AnimalCreate/AnimalCreate';
 import AnimalDetails from '../screens/AnimalDetails/AnimalDetails';
 import AnimalEdit from '../screens/AnimalEdit/AnimalEdit';
 import Animals from '../screens/Animals/Animals';
-import { createAnimals, getAllAnimals, updateAnimals } from '../services/animalConfig';
+import { createAnimals, deleteAnimals, getAllAnimals, updateAnimals } from '../services/animalConfig';
 
 export default function AnimalsContainer(props) {
 
@@ -19,7 +19,7 @@ export default function AnimalsContainer(props) {
       setAnimals(animals)
     }
     fetchAnimals()
-  })
+  }, [toggle])
 
   const handleCreate = async (AnimalData) => {
     await createAnimals(AnimalData)
@@ -33,13 +33,19 @@ export default function AnimalsContainer(props) {
     navigate(`/animals/${id}`)
   }
 
+  const handleDelete = async (id) => {
+    await deleteAnimals(id)
+    setToggle(prevToggle => !prevToggle)
+    navigate('/animals')
+  }
+
   return (
     <div>
       <Routes>
         <Route path='/' element={<Animals animals={animals} currentUser={props.currentUser} />} />
-        <Route path='/:id' element={<AnimalDetails animals={animals} currentUser={props.currentUser} />} />
+        <Route path='/:id' element={<AnimalDetails animals={animals} handleDelete={handleDelete}currentUser={props.currentUser} />} />
         <Route path='/add' element={<AnimalCreate handleCreate={handleCreate} />} />
-        <Route path='/:id/edit' element={<AnimalEdit handleEdit={handleEdit} />} />
+        <Route path='/:id/edit' element={<AnimalEdit handleEdit={handleEdit}  />} />
       </Routes>
     </div>
   )
