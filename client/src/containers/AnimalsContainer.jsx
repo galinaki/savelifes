@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router';
 import { Routes, Route } from 'react-router-dom';
 import AnimalCreate from '../screens/AnimalCreate/AnimalCreate';
 import AnimalDetails from '../screens/AnimalDetails/AnimalDetails';
+import AnimalEdit from '../screens/AnimalEdit/AnimalEdit';
 import Animals from '../screens/Animals/Animals';
-import { createAnimals, getAllAnimals } from '../services/animalConfig';
+import { createAnimals, getAllAnimals, updateAnimals } from '../services/animalConfig';
 
 export default function AnimalsContainer(props) {
 
@@ -26,14 +27,19 @@ export default function AnimalsContainer(props) {
     navigate('/animals')
   }
 
-
+  const handleEdit = async (id, AnimalData) => {
+    await updateAnimals(id, AnimalData)
+    setToggle(prevToggle => !prevToggle)
+    navigate(`/animals/${id}`)
+  }
 
   return (
     <div>
       <Routes>
         <Route path='/' element={<Animals animals={animals} currentUser={props.currentUser} />} />
         <Route path='/:id' element={<AnimalDetails animals={animals} currentUser={props.currentUser} />} />
-        <Route path='/add' element={<AnimalCreate handleCreate={handleCreate}/>} />
+        <Route path='/add' element={<AnimalCreate handleCreate={handleCreate} />} />
+        <Route path='/:id/edit' element={<AnimalEdit handleEdit={handleEdit} />} />
       </Routes>
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function AnimalDetails(props) {
 
@@ -13,6 +14,17 @@ export default function AnimalDetails(props) {
     const foundAnimal = props.animals.find(animal => {
       return animal.id === parseInt(id)
     })
+    
+    // if (foundAnimal) {
+    //   setAnimal({
+    //     name: foundAnimal.name,
+    //     img_url: foundAnimal.img_url,
+    //     population: foundAnimal.population,
+    //     habitats: foundAnimal.habitats,
+    //     link: foundAnimal.link,
+    //     location: foundAnimal.location
+    //   })
+    // }
     setAnimal(foundAnimal)
   }, [id, props.animals])
 
@@ -32,7 +44,9 @@ export default function AnimalDetails(props) {
             {
               props.currentUser?.id === animal.user_id ?
               <>
-                <button>Edit</button>
+                <Link to={`/animals/${animal.id}/edit`}>
+                  <button>Edit</button>
+                </Link>
                 <button>Delete</button>
               </>
               :

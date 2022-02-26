@@ -24,7 +24,7 @@ export default function AnimalForm(props) {
         name='population'
         value={population}
         placeholder='population'
-        onChange={props.handleTextInput}
+        onChange={props.handleNumberInput}
       />
       <input
         name='habitats'

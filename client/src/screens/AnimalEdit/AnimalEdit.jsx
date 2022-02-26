@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
-import AnimalForm from '../../components/AnimalForm/AnimalForm'
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import AnimalForm from '../../components/AnimalForm/AnimalForm';
 
 const default_input = {
   name: '',
@@ -11,10 +11,11 @@ const default_input = {
   location: ''
 }
 
-export default function AnimalCreate(props) {
+export default function AnimalEdit(props) {
 
   const [input, setInput] = useState(default_input)
-  const navigate= useNavigate()
+  const navigate = useNavigate()
+  const { id } = useParams()
 
   const handleTextInput = (event) => {
     const { name, value } = event.target
@@ -23,6 +24,7 @@ export default function AnimalCreate(props) {
       [name]: value,
     }))
   }
+  
 
   const handleNumberInput = (e) => {
     const { name, valueAsNumber } = e.target
@@ -35,19 +37,19 @@ export default function AnimalCreate(props) {
   const handleSubmit = (e)=> {
     e.preventDefault()
     const AnimalData = input
-    props.handleCreate(AnimalData)
+    props.handleEdit(id, AnimalData)
     navigate('/animals')
   }
 
   return (
     <div>
-      <h3>Add an Animal</h3>
+      <h3>Edit an Animal</h3>
       <AnimalForm
         input={input}
         handleTextInput={handleTextInput}
         handleNumberInput={handleNumberInput}
         handleSubmit={handleSubmit}
-        type={'Add'}
+        type={'Edit'}
       />
     </div>
   )

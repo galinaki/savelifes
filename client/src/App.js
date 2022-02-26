@@ -31,7 +31,7 @@ function App() {
         <Route path='/users' element={<Subscribe />} setCurrentUser={setCurrentUser}  />
         <Route path='/login' element={<Login setCurrentUser={setCurrentUser} />} />
         <Route path='/' element={<h1>Hello</h1>} />
-        <Route path='/animals/*' element={<AnimalsContainer setCurrentUser={setCurrentUser} />} />
+        <Route path='/animals/*' element={<AnimalsContainer currentUser={currentUser} />} />
       </Routes>
     </div>
   );
