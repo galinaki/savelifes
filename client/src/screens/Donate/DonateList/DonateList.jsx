@@ -11,8 +11,8 @@ export default function DonateList(props) {
             <h4>{donate.name}</h4>
             <h5>{donate.desciption}</h5>
             <h6><a href={`${donate.link}`}>Link here</a></h6>
-            <button>Edit</button>
-            <button>Delete</button>
+            <Link to={`/donate/${donate.id}/edit`}><button>Edit</button></Link>
+            <button onClick={()=>props.handleDelete(donate.id)}>Delete</button>
           </div>
         ))
       }
