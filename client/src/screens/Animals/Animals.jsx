@@ -8,7 +8,7 @@ export default function Animals(props) {
       {props.animals.map(animal => (
         <Link className={styles.animal_list} key={animal.id} to={`/animals/${animal.id}`} >
           <img className={styles.animal_img} src={animal.img_url} alt={animal.name}/>
-          <h4>{animal.name}</h4>
+          <h4 className={styles.animal_name}>{animal.name}</h4>
         </Link>
       ))}
     </div>

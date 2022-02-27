@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-h4 {
+.animal_name {
   position: relative;
   top: -100px;
   left: 30%;
