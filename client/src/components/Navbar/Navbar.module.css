@@ -1,0 +1,75 @@
+.navbar {
+  background-color: black;
+  color: rgb(177, 164, 147);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+.title {
+  color: rgb(228, 205, 175);
+  text-decoration: none;
+  font-size: 34px;
+  align-items: center;
+}
+.home_link,
+.donate_link,
+.login_link,
+.sub_link {
+  text-decoration: none;
+  color: rgb(177, 164, 147);
+  font-size: 30px;
+  margin: 10px;
+
+  text-align: left;
+}
+.home_link:hover,
+.donate_link:hover,
+.login_link:hover,
+.sub_link:hover {
+  color: orange;
+}
+/* .home_link {
+  
+} */
+/* .donate_link {
+}
+.login_link {
+} */
+.welcome_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.welcome,
+.welcome_name,
+.logout {
+  margin: 10px;
+}
+.welcome {
+  font-size: 30px;
+}
+.welcome_name {
+  font-size: 32px;
+  color: rgb(184, 154, 114);
+}
+.welcome_name:hover {
+  color: orange;
+}
+.logout {
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  font-family: inherit;
+  background-blend-mode: multiply;
+  color: rgb(177, 164, 147);
+  border-radius: 9px;
+  background: linear-gradient(225deg, #343333, #716f6f);
+  box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+}
+.logout:hover {
+  color: orange;
+}

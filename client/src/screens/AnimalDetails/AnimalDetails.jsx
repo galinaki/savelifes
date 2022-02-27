@@ -28,6 +28,8 @@ export default function AnimalDetails(props) {
     setAnimal(foundAnimal)
   }, [id, props.animals])
 
+  const thisAnimal = animal
+
   return (
     <div>
       {
@@ -44,8 +46,16 @@ export default function AnimalDetails(props) {
             {
               props.currentUser?.id === animal.user_id ?
               <>
-                <Link to={`/animals/${animal.id}/edit`}>
-                  <button>Edit</button>
+                  <Link animal={animal} to={`/animals/${animal.id}/edit`}>
+                  {/* <Link to={{
+                    pathname: `/animals/${animal.id}/edit`,
+                    animals: props.animals,
+                    state: { fromDashboard: true }
+                  }}
+                > */}
+                
+                    <button>Edit</button>
+                    
                 </Link>
                 <button onClick={()=>props.handleDelete(animal.id)}>Delete</button>
               </>

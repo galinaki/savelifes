@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import AnimalForm from '../../components/AnimalForm/AnimalForm';
-
-const default_input = {
-  name: '',
-  img_url: '',
-  population: 0,
-  habitats: '',
-  link: '',
-  location: ''
-}
+import { useLocation } from 'react-router';
 
 export default function AnimalEdit(props) {
+  
+  const navigate = useNavigate()
+  const { id } = useParams();
+  const location = useLocation()
+//   const fromDashboard = location.state?.fromDashboard
+
+// console.log(fromDashboard)
+
+  const default_input = {
+    name: "name" ,
+    img_url: "?",
+    population: 0,
+    habitats: "test",
+    link: "test",
+    location: "test"
+  }
 
   const [input, setInput] = useState(default_input)
-  const navigate = useNavigate()
-  const { id } = useParams()
-
+  
   const handleTextInput = (event) => {
     const { name, value } = event.target
     setInput((prevInput) => ({
@@ -25,7 +31,6 @@ export default function AnimalEdit(props) {
     }))
   }
   
-
   const handleNumberInput = (e) => {
     const { name, valueAsNumber } = e.target
     setInput((prevInput) => ({

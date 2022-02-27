@@ -1,3 +1,4 @@
+import styles from './AnimalsContainer.module.css'
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Routes, Route } from 'react-router-dom';

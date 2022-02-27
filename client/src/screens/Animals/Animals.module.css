@@ -1,0 +1,32 @@
+.animal_img {
+  /* height: 400px; */
+  width: 500px;
+  border: 5px solid white;
+  border-radius: 50%;
+}
+.animal_img:hover {
+  border: 6px solid black;
+  border-radius: 15%;
+  zoom: 102%;
+}
+.animals {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+h4 {
+  position: relative;
+  top: -100px;
+  left: 30%;
+  text-align: center;
+  color: aliceblue;
+  text-decoration: none;
+  background-color: black;
+  width: 200px;
+  font-size: 25px;
+}
+Link {
+  text-decoration: none;
+}
