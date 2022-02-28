@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './DonateNew.module.css'
 import { useState } from 'react'
 
 export default function DonateNew(props) {
@@ -9,34 +9,45 @@ export default function DonateNew(props) {
   const [link, setLink] = useState('')
 
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault()
-      const donate = {
-        name, desciption, logo_url, link
-      }
-      props.handleNewDonate(donate)
-    }}>
-      <input
-        type='text'
-        value={name}
-        onChange={(e)=>setName(e.target.value)}
-      />
-      <input
-        type='text'
-        value={desciption}
-        onChange={(e)=>setDesciption(e.target.value)}
-      />
-      <input
-        type='text'
-        value={logo_url}
-        onChange={(e)=>setLogo_url(e.target.value)}
-      />
-      <input
-        type='text'
-        value={link}
-        onChange={(e)=>setLink(e.target.value)}
-      />
-      <button>Add</button>
-    </form>
+    <div className={styles.donate_form}>
+      <form className={styles.donate_form_input} onSubmit={(e) => {
+        e.preventDefault()
+        const donate = {
+          name, desciption, logo_url, link
+        }
+        props.handleNewDonate(donate)
+      }}>
+        <h2>Share a trustful fund</h2>
+        <input className={styles.donate_input}
+          type='text'
+          placeholder='Organization name'
+          value={name}
+          onChange={(e)=>setName(e.target.value)}
+        />
+        <br />
+        <input className={styles.donate_input}
+          type='text'
+          placeholder='Description'
+          value={desciption}
+          onChange={(e)=>setDesciption(e.target.value)}
+        />
+        <br />
+        <input className={styles.donate_input}
+          type='text'
+          placeholder='Logo image url'
+          value={logo_url}
+          onChange={(e)=>setLogo_url(e.target.value)}
+        />
+        <br />
+        <input className={styles.donate_input}
+          type='text'
+          placeholder='Link to source'
+          value={link}
+          onChange={(e)=>setLink(e.target.value)}
+        />
+        <br />
+        <button className={styles.donate_button}>Add</button>
+        </form>
+      </div>
   )
 }

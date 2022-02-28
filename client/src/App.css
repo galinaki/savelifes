@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Mirza&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
 .App {
   /* background-color: black; */
   background: linear-gradient(rgb(29, 51, 73, 0.5), rgb(21, 31, 42, 0.5)),
     /* url(https://upload.wikimedia.org/wikipedia/commons/4/47/Deforestation_in_Borneo.jpg), */
       url(https://yaleglobalhealthreview.files.wordpress.com/2017/05/2017-akielly-3.jpg);
   background-size: cover;
-  font-family: "Mirza", cursive;
+  font-family: "IM Fell English", serif;
 }
 
 .App-logo {
