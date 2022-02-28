@@ -6,7 +6,7 @@ import AnimalsContainer from './containers/AnimalsContainer';
 import Subscribe from './screens/Subscribe/Subscribe';
 import Login from './screens/Login/Login';
 import Navbar from './components/Navbar/Navbar';
-import DonaitContainer from './screens/Donate/DonateContainer/DonaitContainer';
+import DonateContainer from './screens/Donate/DonateContainer/DonateContainer';
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
         <Route path='/login' element={<Login setCurrentUser={setCurrentUser} />} />
         <Route path='/' element={<h1>Hello</h1>} />
         <Route path='/animals/*' element={<AnimalsContainer currentUser={currentUser} />} />
-        <Route path='/donate/*' element={<DonaitContainer currentUser={currentUser} />} />
+        <Route path='/donate/*' element={<DonateContainer currentUser={currentUser} />} />
       </Routes>
     </div>
   );

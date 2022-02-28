@@ -22,7 +22,7 @@ export default function DonaitContainer(props) {
   }, [toggle])
 
   const handleNewDonate = async (donateData) => {
-    await createDonates(donateData)
+    await createDonates( donateData)
     setToggle(prevToggle => !prevToggle)
     navigate('/donate')
   }
@@ -42,8 +42,8 @@ export default function DonaitContainer(props) {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<DonateList donates={donates} handleDelete={handleDelete} />} />
-        <Route path='/newFund' element={<DonateNew handleNewDonate={handleNewDonate} />} />
+        <Route path='/' element={<DonateList donates={donates} handleDelete={handleDelete}  currentUser={props.currentUser} />} />
+        <Route path='/newFund' element={<DonateNew handleNewDonate={handleNewDonate} currentUser={props.currentUser}/>} />
         <Route path='/:id/edit' element={<DonateEdit handleEdit={handleEdit} donates={donates} />} />
       </Routes>
     </div>
