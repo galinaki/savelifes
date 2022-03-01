@@ -6,7 +6,16 @@ export default function DonateList(props) {
   
   return (
     <div className={styles.donate_list}>
-      <Link to='/donate/newFund'><button className={styles.donate_button}>Add more Funds</button></Link>
+      {
+        props.currentUser ?
+          <>
+            <Link to='/donate/newFund'><button className={styles.donate_button}>Add more Funds</button></Link>
+          </>
+          :
+          <>
+          <h4>Please login</h4>
+          </>
+      }
       {
         props.donates.map(donate => (
           <div className={styles.donate} key={donate.id}>
