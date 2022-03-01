@@ -6,6 +6,7 @@ import AnimalCreate from '../screens/AnimalCreate/AnimalCreate';
 import AnimalDetails from '../screens/AnimalDetails/AnimalDetails';
 import AnimalEdit from '../screens/AnimalEdit/AnimalEdit';
 import Animals from '../screens/Animals/Animals';
+import Map from '../components/Map/Map';
 import { createAnimals, deleteAnimals, getAllAnimals, updateAnimals } from '../services/animalConfig';
 
 export default function AnimalsContainer(props) {
@@ -46,7 +47,8 @@ export default function AnimalsContainer(props) {
         <Route path='/' element={<Animals animals={animals} currentUser={props.currentUser} />} />
         <Route path='/:id' element={<AnimalDetails animals={animals} handleDelete={handleDelete}currentUser={props.currentUser} />} />
         <Route path='/add' element={<AnimalCreate handleCreate={handleCreate} />} />
-        <Route path='/:id/edit' element={<AnimalEdit handleEdit={handleEdit}  />} />
+        <Route path='/:id/edit' element={<AnimalEdit handleEdit={handleEdit} animals={animals} />} />
+        <Route path='/map' element={<Map animals={animals} />} />
       </Routes>
     </div>
   )

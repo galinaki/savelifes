@@ -34,6 +34,7 @@ function App() {
         <Route path='/' element={<h1>Hello</h1>} />
         <Route path='/animals/*' element={<AnimalsContainer currentUser={currentUser} />} />
         <Route path='/donate/*' element={<DonateContainer currentUser={currentUser} />} />
+        
       </Routes>
     </div>
   );

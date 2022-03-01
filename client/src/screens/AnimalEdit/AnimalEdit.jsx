@@ -3,28 +3,34 @@ import { useNavigate, useParams } from 'react-router';
 import AnimalForm from '../../components/AnimalForm/AnimalForm';
 import { useLocation } from 'react-router';
 
+const default_input = {
+  name: '',
+  img_url: '',
+  population: 0,
+  habitats: '',
+  link: '',
+  location: ''
+}
+
 export default function AnimalEdit(props) {
   
   const navigate = useNavigate()
   const { id } = useParams();
-  const location = useLocation()
-//   const fromDashboard = location.state?.fromDashboard
+  // const location = useLocation()
 
-// console.log(fromDashboard)
+  const [input, setInput] = useState(props.animals)
+  const [currentAnimal, setCurrentAnimal] = useState(props.animals)
+  useEffect(() => {
+    const foundAnimal = props.animals.find(animal => animal.id === parseInt(id)
+    )
+    setCurrentAnimal(foundAnimal)
+    console.log(currentAnimal)
+  }, [])
 
-  const default_input = {
-    name: "name" ,
-    img_url: "?",
-    population: 0,
-    habitats: "test",
-    link: "test",
-    location: "test"
-  }
 
-  const [input, setInput] = useState(default_input)
   
   const handleTextInput = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target.value
     setInput((prevInput) => ({
       ...prevInput,
       [name]: value,
@@ -32,7 +38,7 @@ export default function AnimalEdit(props) {
   }
   
   const handleNumberInput = (e) => {
-    const { name, valueAsNumber } = e.target
+    const { name, valueAsNumber } = e.target.value
     setInput((prevInput) => ({
       ...prevInput,
       [name]: valueAsNumber,
@@ -42,6 +48,7 @@ export default function AnimalEdit(props) {
   const handleSubmit = (e)=> {
     e.preventDefault()
     const AnimalData = input
+    console.log(input)
     props.handleEdit(id, AnimalData)
     navigate('/animals')
   }
@@ -50,7 +57,7 @@ export default function AnimalEdit(props) {
     <div>
       <h3>Edit an Animal</h3>
       <AnimalForm
-        input={input}
+        input={currentAnimal}
         handleTextInput={handleTextInput}
         handleNumberInput={handleNumberInput}
         handleSubmit={handleSubmit}
