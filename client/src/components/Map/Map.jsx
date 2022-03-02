@@ -12,8 +12,26 @@ const center = {
   lng: 105.482730
 };
 
+
 export default function Map(props) {
   const [selected, setSelected] = useState(null)
+
+  const animal = props.animals.map(animal => {
+    const animal_image = animal.img_url
+   return (
+  
+     <Marker className={styles.map} key={animal.id}
+       position={{
+         lat: parseFloat(animal.latitude),
+         lng: parseFloat(animal.longitude)
+       }}
+       icon={{
+         url: animal_image, scaledSize: { width: 50, height: 50}
+       }}
+     />
+  )})
+       
+  
   
     return (
       <LoadScript
@@ -24,19 +42,7 @@ export default function Map(props) {
           center={center}
           zoom={3}
         >
-          {props.animals.map(animal => (
-            <Marker className={styles.map} key={animal.id}
-              position={{
-                lat: parseFloat(animal.latitude),
-                lng: parseFloat(animal.latitude)
-              }}
-              // icon={animal.img_url}
-              
-              
-            />
-
-
-          ))}
+          {animal}
         </GoogleMap>
        
       </LoadScript>

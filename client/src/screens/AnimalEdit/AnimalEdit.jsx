@@ -15,24 +15,25 @@ const default_input = {
 }
 
 export default function AnimalEdit(props) {
+  const { id } = useParams();
+
+  const foundAnimal = props.animals.find(animal => animal.id === parseInt(id)
+  )
   
   const navigate = useNavigate()
-  const { id } = useParams();
-  // const location = useLocation()
+  
 
-  const [input, setInput] = useState(props.animals)
-  const [currentAnimal, setCurrentAnimal] = useState(props.animals)
+  const [input, setInput] = useState(foundAnimal)
+  const [currentAnimal, setCurrentAnimal] = useState(foundAnimal)
+
   useEffect(() => {
-    const foundAnimal = props.animals.find(animal => animal.id === parseInt(id)
-    )
+  
     setCurrentAnimal(foundAnimal)
     console.log(currentAnimal)
   }, [])
-
-
   
-  const handleTextInput = (event) => {
-    const { name, value } = event.target
+  const handleTextInput = (e) => {
+    const { name, value } = e.target.value
     setInput((prevInput) => ({
       ...prevInput,
       [name]: value,
@@ -40,17 +41,16 @@ export default function AnimalEdit(props) {
   }
   
   const handleNumberInput = (e) => {
-    const { name, valueAsNumber } = e.target
+    const { name, valueAsNumber } = e.target.value
     setInput((prevInput) => ({
       ...prevInput,
       [name]: valueAsNumber,
     }))
   }
 
-  const handleSubmit = (e)=> {
+  const handleOnChange = (e)=> {
     e.preventDefault()
     const AnimalData = input
-
     console.log(input)
     props.handleEdit(id, AnimalData)
     navigate('/animals')
@@ -60,10 +60,10 @@ export default function AnimalEdit(props) {
     <div className={styles.animal_form}>
       <h3>Edit an Animal</h3>
       <AnimalForm
-        input={input}
+        input={currentAnimal}
         handleTextInput={handleTextInput}
         handleNumberInput={handleNumberInput}
-        handleSubmit={handleSubmit}
+        handleOnChange={handleOnChange}
         type={'Edit'}
       />
     </div>

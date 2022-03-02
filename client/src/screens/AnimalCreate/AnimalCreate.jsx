@@ -9,12 +9,15 @@ const default_input = {
   population: 0,
   habitats: '',
   link: '',
-  latitude: 0,
-  longitude: 0
+  latitude: '',
+  longitude: ''
 }
 
 export default function AnimalCreate(props) {
-
+  // const [name, setName] = useState('')
+  // const [img_url, setImg_url] = 
+  // const [population, setPopulation] = 
+  // const [habitats, setHabitats] = 
   const [input, setInput] = useState(default_input)
   const navigate= useNavigate()
 
