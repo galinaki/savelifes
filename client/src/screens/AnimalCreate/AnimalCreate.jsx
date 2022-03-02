@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from './AnimalForm.module.css'
 import { useNavigate } from 'react-router'
 import AnimalForm from '../../components/AnimalForm/AnimalForm'
 
@@ -8,7 +9,6 @@ const default_input = {
   population: 0,
   habitats: '',
   link: '',
-  location: '',
   latitude: 0,
   longitude: 0
 }
@@ -42,7 +42,7 @@ export default function AnimalCreate(props) {
   }
 
   return (
-    <div>
+    <div className={styles.animal_form}>
       <h3>Add an Animal</h3>
       <AnimalForm
         input={input}

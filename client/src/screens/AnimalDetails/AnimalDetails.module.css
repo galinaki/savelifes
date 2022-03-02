@@ -1,0 +1,12 @@
+.animal_details {
+  margin-top: 50px;
+  height: 100vh;
+  color: aliceblue;
+  text-align: center;
+  font-size: 30px;
+}
+.animal_img {
+  width: 600px;
+  border-radius: 9px;
+  box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+}

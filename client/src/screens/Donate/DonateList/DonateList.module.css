@@ -1,5 +1,5 @@
 .donate_list {
-  height: 100%vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -18,6 +18,10 @@
     rgba(47, 133, 128, 0.9),
     rgba(20, 49, 48, 0.9)
   );
+}
+.donate:hover {
+  transition: transform 0.15s ease;
+  transform: scale(1.1);
 }
 .donate_link {
   display: flex;

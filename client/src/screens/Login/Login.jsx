@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { loginUser } from '../../services/userConfig'
 import { useNavigate } from 'react-router-dom'
+import styles from './Login.module.css'
 
 export default function Login(props) {
   const [username, setUsername] = useState('')
@@ -9,7 +10,7 @@ export default function Login(props) {
   const navigate = useNavigate()
 
   return (
-    <form onSubmit={async (e) => {
+    <form className={styles.animal_form} onSubmit={async (e) => {
       e.preventDefault()
       const user = {
         username,
@@ -21,9 +22,11 @@ export default function Login(props) {
       navigate('/animals')
 
     }}>
-      <input type='text' onChange={(e) => setUsername(e.target.value) } value={username} />
-      <input type='password' onChange={ (e) => setPassword(e.target.value)} value={password} />
-      <button>Login</button>
+      <div className={styles.animal_form_input}>
+      <input className={styles.animal_input} type='text' onChange={(e) => setUsername(e.target.value) } value={username} />
+      <input className={styles.animal_input} type='password' onChange={ (e) => setPassword(e.target.value)} value={password} />
+        <button className={styles.animal_button}>Login</button>
+        </div>
     </form>
   )
 }

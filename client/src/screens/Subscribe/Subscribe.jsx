@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { registerUser } from '../../services/userConfig'
 import { useNavigate } from 'react-router-dom'
+import styles from '../Login/Login.module.css'
 
 export default function Subscribe(props) {
 
@@ -47,7 +48,7 @@ export default function Subscribe(props) {
   }
 
   return (
-    <form onSubmit={async (e) => {
+    <form className={styles.animal_form}  onSubmit={async (e) => {
       e.preventDefault()
       const user = {
         username,
@@ -63,22 +64,25 @@ export default function Subscribe(props) {
       navigate('/')
 
     }}>
-      <input type='text' onChange={(e) => setUsername(e.target.value)} value={username} />
+      <div className={styles.animal_form_input}>
+      <h4>Create an account</h4>
+      <input className={styles.animal_input} type='text' onChange={(e) => setUsername(e.target.value)} value={username} placeholder='username' />
       <br />
-      <input type='text' onChange={(e) => setEmail(e.target.value)} value={email} />
+      <input className={styles.animal_input} type='text' onChange={(e) => setEmail(e.target.value)} value={email} placeholder='email'/>
       <br />
-      <input type='text' onChange={(e) => setFirstname(e.target.value)} value={firstname} />
+      <input className={styles.animal_input} type='text' onChange={(e) => setFirstname(e.target.value)} value={firstname} placeholder='First name' />
       <br />
-      <input type='text' onChange={(e) => setLastname(e.target.value)} value={lastname} />
+      <input className={styles.animal_input} type='text' onChange={(e) => setLastname(e.target.value)} value={lastname} placeholder='Last name' />
       <br />
-      <input type='password' onChange={(e) => setPassword(e.target.value)} value={password} />
+      <input className={styles.animal_input} type='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password' />
       <br />
-      <input type='password' onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} />
+      <input className={styles.animal_input} type='password' onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} placeholder='Confirm password' />
       <br />
       <h5>{validationMessage}</h5>
       
 
-      <button>Sign Up</button>
+        <button className={styles.animal_button}>Sign Up</button>
+        </div>
     </form>
   )
 }

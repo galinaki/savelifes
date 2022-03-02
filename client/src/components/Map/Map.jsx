@@ -1,4 +1,6 @@
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { useState } from 'react';
+import styles from './Map.module.css'
 
 const containerStyle = {
   width: '600px',
@@ -11,6 +13,7 @@ const center = {
 };
 
 export default function Map(props) {
+  const [selected, setSelected] = useState(null)
   
     return (
       <LoadScript
@@ -22,18 +25,22 @@ export default function Map(props) {
           zoom={3}
         >
           {props.animals.map(animal => (
-            <Marker key={animal.id}
+            <Marker className={styles.map} key={animal.id}
               position={{
                 lat: parseFloat(animal.latitude),
                 lng: parseFloat(animal.latitude)
               }}
-              icon={animal.img_url}
+              // icon={animal.img_url}
+              
+              
             />
 
 
           ))}
         </GoogleMap>
+       
       </LoadScript>
+      
     )
   
   }

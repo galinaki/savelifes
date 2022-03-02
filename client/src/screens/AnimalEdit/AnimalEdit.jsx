@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import AnimalForm from '../../components/AnimalForm/AnimalForm';
-import { useLocation } from 'react-router';
+import styles from '../AnimalCreate/AnimalForm.module.css'
 
 const default_input = {
   name: '',
@@ -57,7 +57,7 @@ export default function AnimalEdit(props) {
   }
 
   return (
-    <div>
+    <div className={styles.animal_form}>
       <h3>Edit an Animal</h3>
       <AnimalForm
         input={input}

@@ -13,19 +13,19 @@ export default function DonateList(props) {
           </>
           :
           <>
-          <h4>Please login</h4>
+          <h4>Please login to add a Fund</h4>
           </>
       }
       {
         props.donates.map(donate => (
           <div className={styles.donate} key={donate.id}>
-            <Link className={styles.donate_link} to={`${donate.link}`}  >
+            <a className={styles.donate_link} href={`${donate.link}`}  >
               <img className={styles.donate_img} src={donate.logo_url} alt={donate.name}/>
               <div className={styles.donate_details}>
                 <h4 className={styles.donate_name}>{donate.name}</h4>
                 <h5 className={styles.donate_description}>{donate.desciption}</h5>
               </div>
-            </Link>
+            </a>
             {
               props.currentUser?.id === donate.user_id ?
               <div className={styles.donate_buttons}>

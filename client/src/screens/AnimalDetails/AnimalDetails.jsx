@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import styles from './AnimalDetails.module.css'
 
 export default function AnimalDetails(props) {
 
@@ -14,48 +15,28 @@ export default function AnimalDetails(props) {
     const foundAnimal = props.animals.find(animal => {
       return animal.id === parseInt(id)
     })
-    
-    // if (foundAnimal) {
-    //   setAnimal({
-    //     name: foundAnimal.name,
-    //     img_url: foundAnimal.img_url,
-    //     population: foundAnimal.population,
-    //     habitats: foundAnimal.habitats,
-    //     link: foundAnimal.link,
-    //     location: foundAnimal.location
-    //   })
-    // }
     setAnimal(foundAnimal)
   }, [id, props.animals])
 
   return (
-    <div>
+    <div className={styles.animal_details}>
       {
         animal?.id ? 
           <>
-            <img src={animal.img_url} alt={animal.name} />
+            <img className={styles.animal_img} src={animal.img_url} alt={animal.name} />
             <h3>{animal.name}</h3>
-            <h4>{animal.population}</h4>
-            <h4>{animal.habitats}</h4>
+            <h4>Population: {animal.population}</h4>
+            <h4>Area: {animal.habitats}</h4>
             <h5>{animal.link}</h5>
             <h5>{animal.location}</h5>
             <h5>{animal.latitude}</h5>
             <h5>{animal.longitude}</h5>
-            <h1>{animal.user_id}</h1>
             
             {
               props.currentUser?.id === animal.user_id ?
               <>
                   <Link animal={animal} to={`/animals/${animal.id}/edit`}>
-                  {/* <Link to={{
-                    pathname: `/animals/${animal.id}/edit`,
-                    animals: props.animals,
-                    state: { fromDashboard: true }
-                  }}
-                > */}
-                
                     <button>Edit</button>
-                    
                 </Link>
                 <button onClick={()=>props.handleDelete(animal.id)}>Delete</button>
               </>
