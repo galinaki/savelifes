@@ -9,7 +9,9 @@ const default_input = {
   population: 0,
   habitats: '',
   link: '',
-  location: ''
+  location: '',
+  latitude: 0,
+  longitude: 0
 }
 
 export default function AnimalEdit(props) {
@@ -30,7 +32,7 @@ export default function AnimalEdit(props) {
 
   
   const handleTextInput = (event) => {
-    const { name, value } = event.target.value
+    const { name, value } = event.target
     setInput((prevInput) => ({
       ...prevInput,
       [name]: value,
@@ -38,7 +40,7 @@ export default function AnimalEdit(props) {
   }
   
   const handleNumberInput = (e) => {
-    const { name, valueAsNumber } = e.target.value
+    const { name, valueAsNumber } = e.target
     setInput((prevInput) => ({
       ...prevInput,
       [name]: valueAsNumber,
@@ -48,6 +50,7 @@ export default function AnimalEdit(props) {
   const handleSubmit = (e)=> {
     e.preventDefault()
     const AnimalData = input
+
     console.log(input)
     props.handleEdit(id, AnimalData)
     navigate('/animals')
@@ -57,7 +60,7 @@ export default function AnimalEdit(props) {
     <div>
       <h3>Edit an Animal</h3>
       <AnimalForm
-        input={currentAnimal}
+        input={input}
         handleTextInput={handleTextInput}
         handleNumberInput={handleNumberInput}
         handleSubmit={handleSubmit}

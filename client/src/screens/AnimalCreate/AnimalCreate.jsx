@@ -8,7 +8,9 @@ const default_input = {
   population: 0,
   habitats: '',
   link: '',
-  location: ''
+  location: '',
+  latitude: 0,
+  longitude: 0
 }
 
 export default function AnimalCreate(props) {

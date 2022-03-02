@@ -3,7 +3,8 @@ import { useState } from 'react'
 
 export default function AnimalForm(props) {
 
-  const {name, img_url,  population, habitats, link, location
+  const {name, img_url,  population, habitats, link, location, latitude,
+  longitude
   } = props.input
 
   return (
@@ -42,6 +43,18 @@ export default function AnimalForm(props) {
         name='location'
         value={location}
         placeholder='map location'
+        onChange={props.handleTextInput}
+      />
+      <input
+        name='latitude'
+        value={latitude}
+        placeholder='latitude'
+        onChange={props.handleTextInput}
+      />
+      <input
+        name='longitude'
+        value={longitude}
+        placeholder='longitude'
         onChange={props.handleTextInput}
       />
       <button>{props.type} Animal</button>

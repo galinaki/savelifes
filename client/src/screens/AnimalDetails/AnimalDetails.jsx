@@ -28,8 +28,6 @@ export default function AnimalDetails(props) {
     setAnimal(foundAnimal)
   }, [id, props.animals])
 
-  const thisAnimal = animal
-
   return (
     <div>
       {
@@ -41,6 +39,8 @@ export default function AnimalDetails(props) {
             <h4>{animal.habitats}</h4>
             <h5>{animal.link}</h5>
             <h5>{animal.location}</h5>
+            <h5>{animal.latitude}</h5>
+            <h5>{animal.longitude}</h5>
             <h1>{animal.user_id}</h1>
             
             {

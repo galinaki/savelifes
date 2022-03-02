@@ -1,16 +1,16 @@
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '600px',
+  height: '600px'
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 51.755940,
+  lng: 105.482730
 };
 
-export default function Map({animals}) {
+export default function Map(props) {
   
     return (
       <LoadScript
@@ -19,10 +19,21 @@ export default function Map({animals}) {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={10}
+          zoom={3}
         >
-          
+          {props.animals.map(animal => (
+            <Marker key={animal.id}
+              position={{
+                lat: parseFloat(animal.latitude),
+                lng: parseFloat(animal.latitude)
+              }}
+              icon={animal.img_url}
+            />
+
+
+          ))}
         </GoogleMap>
       </LoadScript>
     )
+  
   }
