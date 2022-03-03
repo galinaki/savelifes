@@ -1,7 +1,7 @@
 .animal_details {
   margin-top: 50px;
   /* height: 100vh; */
-  color: aliceblue;
+  color: antiquewhite;
   text-align: center;
   font-size: 30px;
 }
@@ -9,4 +9,31 @@
   width: 600px;
   border-radius: 9px;
   box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+}
+.animal_link {
+  text-decoration: none;
+  color: antiquewhite;
+}
+.animal_link:hover {
+  zoom: 101%;
+  color: burlywood;
+}
+.animal_button {
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  font-family: inherit;
+  background-blend-mode: multiply;
+  color: rgb(177, 164, 147);
+  border-radius: 9px;
+  background: linear-gradient(225deg, #343333, #716f6f);
+  box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+  margin: 30px;
+  height: 30px;
+  width: 10%;
+}
+.animal_button:hover {
+  outline: none;
+  transition: transform 0.15s ease;
+  transform: scale(1.1);
 }
