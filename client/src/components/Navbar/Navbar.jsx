@@ -7,6 +7,7 @@ export default function Navbar(props) {
       
       <div>
         <Link className={styles.donate_link} to='/donate'>Donate</Link>
+        <Link className={styles.donate_link} to='/animals/map'>Map</Link>
       </div>
       <Link to='/animals' className={styles.title}>Save Animals</Link>
       <div>
