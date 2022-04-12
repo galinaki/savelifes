@@ -3,8 +3,8 @@ import { useState } from 'react';
 import styles from './Map.module.css'
 
 const containerStyle = {
-  width: '600px',
-  height: '600px'
+  width: '650px',
+  height: '650px'
 };
 
 const center = {
@@ -18,35 +18,35 @@ export default function Map(props) {
 
   const animal = props.animals.map(animal => {
     const animal_image = animal.img_url
-   return (
-  
-     <Marker className={styles.map} key={animal.id}
-       position={{
-         lat: parseFloat(animal.latitude),
-         lng: parseFloat(animal.longitude)
-       }}
-       icon={{
-         url: animal_image, scaledSize: { width: 50, height: 50}
-       }}
-     />
-  )})
-       
-  
-  
     return (
-      <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_MAPAPI_KEY}
-      >
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={3}
+  
+    <Marker  key={animal.id}
+      position={{
+        lat: parseFloat(animal.latitude),
+        lng: parseFloat(animal.longitude)
+      }}
+      icon={{
+        url: animal_image, scaledSize: { width: 50, height: 50}
+      }}
+    />
+  )})
+  
+  
+  return (
+      <div className={styles.map}>
+        <LoadScript 
+          googleMapsApiKey={process.env.REACT_APP_MAPAPI_KEY}
         >
-          {animal}
-        </GoogleMap>
-       
-      </LoadScript>
-      
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={3}
+          >
+            {animal}
+          </GoogleMap>
+        
+        </LoadScript>
+      </div>
     )
   
   }
